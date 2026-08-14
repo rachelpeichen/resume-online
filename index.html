@@ -45,49 +45,46 @@
       box-shadow: var(--shadow);
       padding: 2.5rem 2.5rem 2rem;
       margin-bottom: 1.25rem;
-      text-align: center;
     }
 
     header h1 {
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.5px;
       color: var(--text);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .tagline {
-      color: var(--text);
-      font-size: 0.875rem;
+      color: var(--muted);
+      font-size: 0.9rem;
       margin-bottom: 1.25rem;
-      letter-spacing: 0.3px;
     }
 
     .contact-row {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
+      flex-wrap: nowrap;
+      gap: 0.5rem 0.4rem;
       font-size: 0.875rem;
+      overflow: hidden;
     }
 
     .contact-row span {
       display: flex;
       align-items: center;
-      color: var(--muted);
+      gap: 0.35rem;
       white-space: nowrap;
-    }
-
-    .contact-row span + span::before {
-      content: "·";
-      margin: 0 0.6rem;
-      color: var(--border);
-      font-size: 1rem;
+      color: var(--muted);
     }
 
     .contact-row a { color: var(--accent); font-weight: 500; }
 
-    .contact-icon { display: none; }
+    .contact-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
 
     /* ── SUMMARY ── */
     .summary-card {
@@ -99,7 +96,6 @@
       font-size: 0.9375rem;
       color: #1e3a5f;
       line-height: 1.7;
-      text-align: justify;
     }
 
     /* ── CARDS ── */
@@ -142,10 +138,8 @@
       color: var(--text);
     }
 
-    .job-sep { color: var(--muted); font-weight: 400; }
-
     .job-company {
-      color: var(--text);
+      color: var(--accent);
       font-weight: 600;
     }
 
@@ -153,7 +147,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
       flex-shrink: 0;
     }
 
@@ -167,9 +161,8 @@
     }
 
     .job-location {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      white-space: nowrap;
     }
 
     .job ul {
@@ -185,7 +178,6 @@
       font-size: 0.9rem;
       color: #333;
       line-height: 1.65;
-      text-align: justify;
     }
 
     .job ul li::before {
@@ -277,208 +269,19 @@
 
     /* ── PRINT ── */
     @media print {
-      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-
-      body {
-        background: white;
-        padding: 0;
-        font-size: 11pt;
-        color: #000;
-        font-family: "Times New Roman", Times, serif;
-      }
-
-      .page { max-width: 100%; margin: 0; }
-
-      a { color: #000; text-decoration: none; }
-
-      /* ── Header ── */
-      header {
-        background: white;
-        border: none;
-        box-shadow: none;
-        padding: 0 0 0.5rem 0;
-        text-align: center;
-        border-bottom: 2px solid #000;
-        margin-bottom: 0.6rem;
-      }
-
-      header h1 {
-        font-size: 20pt;
-        font-weight: bold;
-        letter-spacing: 0;
-        margin-bottom: 0.15rem;
-      }
-
-      .tagline { display: none; }
-
-      .contact-row {
-        font-size: 10pt;
-        gap: 0;
-        justify-content: center;
-        flex-wrap: nowrap;
-      }
-
-      .contact-row span { color: #000; white-space: nowrap; }
-
-      .contact-row span + span::before {
-        content: " | ";
-        margin: 0 0.4rem;
-        color: #000;
-      }
-
-      /* ── Summary ── */
-      .summary-card {
-        background: white;
-        border: none;
-        padding: 0 0 0.5rem 0;
-        margin-bottom: 0.5rem;
-        font-size: 10.5pt;
-        color: #000;
-        line-height: 1.5;
-        border-bottom: 1px solid #ccc;
-      }
-
-      /* ── Cards ── */
-      .card {
-        background: white;
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        margin-bottom: 0.6rem;
-      }
-
-      /* ── Section titles ── */
-      .section-title {
-        font-size: 11pt;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #000;
-        border-bottom: 1px solid #000;
-        padding-bottom: 0.15rem;
-        margin-bottom: 0.5rem;
-      }
-
-      /* ── Jobs ── */
-      .job { margin-bottom: 0.7rem; page-break-inside: avoid; }
-      .job:last-child { margin-bottom: 0; }
-
-      .job-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        flex-wrap: nowrap;
-        margin-bottom: 0.15rem;
-      }
-
-      .job-title {
-        font-size: 10.5pt;
-        font-weight: bold;
-        color: #000;
-      }
-
-      .job-sep { display: inline; color: #000; }
-      .job-company { color: #000; font-weight: bold; }
-      .job-company a { color: #000; }
-
-      .job-meta {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 0.3rem;
-        font-size: 10pt;
-        color: #000;
-        flex-shrink: 0;
-      }
-
-      .job-dates {
-        background: none;
-        border-radius: 0;
-        padding: 0;
-        font-size: 10pt;
-        color: #000;
-      }
-
-      .job-location {
-        font-size: 10pt;
-        color: #000;
-      }
-
-      .job-location::after { content: " —"; }
-
-      .job-divider { display: none; }
-
-      .job ul { margin-top: 0.2rem; }
-
-      .job ul li {
-        font-size: 10.5pt;
-        color: #000;
-        margin-bottom: 0.2rem;
-        line-height: 1.45;
-        text-align: justify;
-      }
-
-      .job ul li strong { color: #000; font-weight: bold; }
-
-      /* ── Education ── */
-      .edu-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-
-      .edu-degree { font-size: 10.5pt; font-weight: bold; color: #000; }
-      .edu-school { font-size: 10pt; color: #000; font-weight: normal; }
-      .edu-meta { font-size: 10pt; color: #000; text-align: right; }
-
-      /* ── Skills ── */
-      .skills-grid { display: block; }
-
-      .skill-group {
-        display: flex;
-        gap: 0.3rem;
-        margin-bottom: 0.25rem;
-        align-items: baseline;
-      }
-
-      .skill-group h3 {
-        font-size: 10.5pt;
-        font-weight: bold;
-        text-transform: none;
-        letter-spacing: 0;
-        color: #000;
-        white-space: nowrap;
-        margin-bottom: 0;
-        min-width: 90pt;
-      }
-
-      .skill-group h3::after { content: ":"; }
-
-      .tag-wrap { display: inline; }
-
-      .tag, .tag.accent {
-        background: none;
-        border: none;
-        border-radius: 0;
-        padding: 0;
-        font-size: 10.5pt;
-        color: #000;
-      }
-
-      .tag + .tag::before, .tag.accent + .tag::before,
-      .tag + .tag.accent::before, .tag.accent + .tag.accent::before {
-        content: ", ";
-      }
+      body { background: white; padding: 0; font-size: 13px; }
+      .page { max-width: 100%; }
+      .card, header { box-shadow: none; border: 1px solid #ddd; }
+      a { color: inherit; }
     }
 
     @media (max-width: 600px) {
       header, .card { padding: 1.5rem 1.25rem; }
       header h1 { font-size: 1.6rem; }
       .job-header { flex-direction: column; }
-      .job-meta { align-items: center; }
+      .job-meta { align-items: flex-start; }
       .edu-item { flex-direction: column; }
       .edu-meta { text-align: left; }
-      .job-sep { display: none; }
-      .job-company { display: block; margin-top: 0.15rem; }
     }
   </style>
 </head>
@@ -488,15 +291,15 @@
   <!-- HEADER -->
   <header>
     <h1>Rachel (Hsin-Pei) Chen</h1>
-    <p class="tagline">Senior Full-Stack Engineer &nbsp;·&nbsp; AI-Native Products &nbsp;·&nbsp; Product Mindset</p>
+    <p class="tagline">Senior Software Engineer &nbsp;·&nbsp; AI-Native Products &nbsp;·&nbsp; Product Mindset</p>
     <div class="contact-row">
       <span>
         <svg class="contact-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h14a1 1 0 011 1v1.586l-7 5.25-7-5.25V3zm0 3.414V15a1 1 0 001 1h14a1 1 0 001-1V6.414l-6.553 4.915a1 1 0 01-1.194 0L2 6.414z"/></svg>
         <a href="mailto:rachel.hp.chen@gmail.com">rachel.hp.chen@gmail.com</a>
       </span>
       <span>
-        <svg class="contact-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-        +(886) 963-153-978
+        <span style="font-size:0.85rem;opacity:0.7;">📞</span>
+        +886963153978
       </span>
       <span>
         <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -521,7 +324,27 @@
     <div class="job">
       <div class="job-header">
         <div>
-          <div class="job-title">Senior Software Engineer <span class="job-sep">&nbsp;·&nbsp;</span><span class="job-company"><a href="https://www.morph-technologies.com/" target="_blank" rel="noopener">Morph Technologies LLC</a></span></div>
+          <div class="job-title">Senior Software Engineer &nbsp;<span style="color:var(--muted);font-weight:400">·</span>&nbsp; <a class="job-company" href="https://www.linkedin.com/company/shareable-corp/" target="_blank" rel="noopener">Shareable</a></div>
+        </div>
+        <div class="job-meta">
+          <span class="job-location">Remote</span>
+          <span class="job-dates">Mar 2026 – Present</span>
+        </div>
+      </div>
+      <ul>
+        <li>Shipped <strong>Commerce &amp; Collection Cards</strong> end-to-end — backend models, REST scrape API, full editors with cover cropping, public carousel, and analytics summary — expanding the platform's core content surface from day one at an early-stage startup.</li>
+        <li>Drove the <strong>Card Design System Overhaul</strong> from spec to production — led cross-functional spec clarification with designer and PM, owned the entire frontend implementation, and staged the rollout behind a feature flag; overhauled visual hierarchy and content density across the platform's full card surface.</li>
+        <li>Delivered <strong>Onboarding &amp; Redemption Experience</strong> — serial number input, redemption code validation, sticky CTA — enabling a no-code onboarding path for non-technical users.</li>
+        <li>Embedded <strong>Claude Code</strong> into the team's engineering workflow by authoring custom Claude Skills (component extraction, release notes), cutting manual overhead and scaling AI-assisted development velocity across the team.</li>
+      </ul>
+    </div>
+
+    <hr class="job-divider" />
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Senior Software Engineer &nbsp;<span style="color:var(--muted);font-weight:400">·</span>&nbsp; <span class="job-company">Morph Technologies LLC</span> &nbsp;<span style="font-size:0.75rem;color:var(--muted);font-weight:400;">· Contract</span></div>
         </div>
         <div class="job-meta">
           <span class="job-location">Remote</span>
@@ -541,7 +364,7 @@
     <div class="job">
       <div class="job-header">
         <div>
-          <div class="job-title">Freelance Software Engineer <span class="job-sep">&nbsp;·&nbsp;</span><span class="job-company">Self-Employed</span></div>
+          <div class="job-title">Freelance Software Engineer &nbsp;<span style="color:var(--muted);font-weight:400">·</span>&nbsp; <span class="job-company">Self-Employed</span></div>
         </div>
         <div class="job-meta">
           <span class="job-location">Remote</span>
@@ -560,7 +383,7 @@
     <div class="job">
       <div class="job-header">
         <div>
-          <div class="job-title">Senior Software Engineer <span class="job-sep">&nbsp;·&nbsp;</span><span class="job-company"><a href="https://www.deltaww-energy.com/" target="_blank" rel="noopener">Delta Energy Inc.</a></span></div>
+          <div class="job-title">Senior Software Engineer &nbsp;<span style="color:var(--muted);font-weight:400">·</span>&nbsp; <span class="job-company">Delta Energy Inc.</span></div>
         </div>
         <div class="job-meta">
           <span class="job-location">Taipei, Taiwan</span>
@@ -571,8 +394,8 @@
         <li>Built a high-performance energy data dashboard using <strong>React.js</strong> with <strong>Zustand</strong> for efficient state management; optimized performance via code splitting, lazy loading, and request batching, reducing load time by <strong>20%</strong>.</li>
         <li>Created and maintained a reusable <strong>MUI</strong> component library, reducing development time and ensuring consistent UI across products.</li>
         <li>Developed and launched a responsive, mobile-first company website from scratch, increasing mobile engagement by <strong>50%</strong>.</li>
-        <li><strong>Led a startup project end-to-end — from initial prototype to general availability</strong> — implementing <strong>Scrum</strong> to define scope, timeline, and resourcing for each release.</li>
-        <li><strong>Led an agile cross-functional team</strong>, balancing internal and external requests against timelines and resources, emphasizing open communication across departments.</li>
+        <li>Led a startup project end-to-end — from initial prototype to general availability — implementing <strong>Scrum</strong> to define scope, timeline, and resourcing for each release.</li>
+        <li>Led an agile cross-functional team, balancing internal and external requests against timelines and resources, emphasizing open communication across departments.</li>
       </ul>
     </div>
 
@@ -581,7 +404,7 @@
     <div class="job">
       <div class="job-header">
         <div>
-          <div class="job-title">Software Engineer <span class="job-sep">&nbsp;·&nbsp;</span><span class="job-company"><a href="https://emq.com/" target="_blank" rel="noopener">EMQ Inc.</a></span></div>
+          <div class="job-title">Software Engineer &nbsp;<span style="color:var(--muted);font-weight:400">·</span>&nbsp; <span class="job-company">EMQ Inc.</span></div>
         </div>
         <div class="job-meta">
           <span class="job-location">New Taipei City, Taiwan</span>
@@ -591,7 +414,7 @@
       <ul>
         <li>Developed scalable, responsive web applications using <strong>React.js</strong> and <strong>TypeScript</strong>, supporting 200+ daily users across Chrome, Edge, and Safari.</li>
         <li>Built and maintained backend services using <strong>Node.js</strong> and <strong>NestJS</strong>, implementing <strong>gRPC</strong> and <strong>Kafka</strong> for inter-process communication in a containerized (Docker/Kubernetes) environment.</li>
-        <li>Migrated an <strong>Objective-C</strong> codebase to a modern <strong>Swift SDK</strong> and shipped the app end-to-end on the App Store, improving code health and enabling future feature expansion.</li>
+        <li>Migrated an <strong>Objective-C</strong> codebase to a modern <strong>Swift</strong> SDK and shipped the app end-to-end on the App Store, improving code health and enabling future feature expansion.</li>
         <li>Implemented secure credential storage with <strong>Keychain</strong> and a custom camera experience with <strong>AVFoundation</strong>; integrated Push Notifications via <strong>Firebase Cloud Messaging</strong> to improve reliability and reduce latency.</li>
       </ul>
     </div>
@@ -631,12 +454,11 @@
       <div class="skill-group">
         <h3>AI Tooling</h3>
         <div class="tag-wrap">
-          <span class="tag accent">Artificial Intelligence (AI)</span>
-          <span class="tag accent">Full-Stack Development</span>
+          <span class="tag accent">Claude Code</span>
           <span class="tag accent">Claude Code Subagents</span>
-          <span class="tag accent">Model Context Protocol (MCP)</span>
-          <span class="tag accent">Claude Cowork</span>
           <span class="tag accent">Claude Skills</span>
+          <span class="tag accent">Claude Cowork</span>
+          <span class="tag accent">Model Context Protocol (MCP)</span>
           <span class="tag accent">Agentic Workflows</span>
         </div>
       </div>
